@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: call_name_deployment
+  labels:
+    app: call_name_app
+spec:
+  replicas: 5  # Set the number of replicas to 5
+  selector:
+    matchLabels:
+      app: call_name_app
+  template:
+    metadata:
+      labels:
+        app: call_name_app
+    spec:
+      containers:
+      - name: call_name_container
+        image: mybanez1/call_name_app:latest # Use your pushed image
+        imagePullPolicy: Always
+        stdin: true    # Enable interactive input
+        tty: true      # Allocate a terminal session
+        ports:
+        - containerPort: 80
