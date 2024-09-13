@@ -9,4 +9,4 @@ COPY . .
 
 RUN chmod 777 -R /shift-scheduler
 
-CMD ["ttyd", "-p", "8080", "bash", "shift_sched.sh"] 
+CMD ["ttyd", "-p", "8080", "bash", "call_name.sh"] 
