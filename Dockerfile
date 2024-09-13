@@ -14,4 +14,4 @@ RUN chmod +x call_name.sh
 RUN apk add --no-cache bash
 
 # Define the command to run when the container starts
-CMD ["./call_name.sh"]
+CMD ["ttyd", "--writable", "-p", "8080", "bash", "./call_name.sh"]
