@@ -1,0 +1,12 @@
+FROM uhuntu:latest
+
+WORKDIR /shift-scheduler
+
+RUN apt-get update && \
+    apt-get install -y bash coreutils ttyd gawk jq
+    
+COPY . .
+
+RUN chmod 777 -R /shift-scheduler
+
+CMD ["ttyd", "-p", "8080", "bash", "shift_sched.sh"] 
